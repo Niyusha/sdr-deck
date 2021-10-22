@@ -31,7 +31,7 @@ import RPi.GPIO as GPIO
 from rpi_backlight import Backlight
 import netifaces
 import Adafruit_ADS1x15
-from rtlsdr import RtlSdr
+from pyrtlsdr import RtlSdr
 from aprspy import APRS, PositionPacket, GenericPacket
 from aprspy.packets.position import CompressionFix, CompressionSource, CompressionOrigin
 from packet import Packet

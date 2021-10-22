@@ -8,5 +8,5 @@ pyalsaaudio
 Adafruit_ADS1x15
 pyais
 netifaces
-rtlsdr
+pyrtlsdr
 influxdb-client
