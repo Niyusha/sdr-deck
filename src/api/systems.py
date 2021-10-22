@@ -5,7 +5,7 @@ __author__ = 'Tom Mladenov'
 
 import json
 import time
-import alsaaudio
+import pyalsaaudio
 import subprocess
 import os
 import telnetlib
@@ -1495,7 +1495,7 @@ class Audio():
 		self.name = self.config["s_id"]		
 
 		GPIO.setup(self.config["i_control_pin"], GPIO.OUT)
-		self.mixer = alsaaudio.Mixer(control="Headphone", id=0, cardindex=0, device="default")
+		self.mixer = pyalsaaudio.Mixer(control="Headphone", id=0, cardindex=0, device="default")
 
 		self.status = 	{
 							"power" : 0,
