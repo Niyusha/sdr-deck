@@ -6,7 +6,7 @@ all: install server setup # This is the default target that will run if no targe
 # Target to install Python packages
 install:
 	@echo "Installing python packages from requirements.txt:"
-	pip install -r requirements.txt
+	pip install -r ./config/requirements.txt
 
 # Target to install OS packages
 setup:
