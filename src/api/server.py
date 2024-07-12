@@ -119,10 +119,8 @@ class Server(object):
             # self.gqrx,
         ]
 
-
         # Start threads
         # = [system.start() for system in self.systems if isinstance(system, Thread)]
-
         for system in self.systems:
             if isinstance(system, Thread):
                 system.start()
