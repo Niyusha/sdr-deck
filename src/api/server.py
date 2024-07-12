@@ -22,9 +22,16 @@ class Server(object):
     def __init__(self, parent=None):
         super(Server, self).__init__()
 
-        #TODO: MAKE ASBOLUTE PATH AGNOSTIC
+        # Get load config.ini without using a hardcoded path:
+        # Get the directory of the current script
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+
+        # Construct the path to config.ini relative to the script directory
+        config_path = os.path.join(script_dir, 'config.ini')
+
+        # Initialize ConfigParser and read the configuration file
         self.configurator = ConfigParser()
-        self.configurator.read("/home/pi/git/sdr-deck/src/api/config.ini")
+        self.configurator.read(config_path)
 
         server_config = dict(self.load_config(self.configurator.items("server")))
 
