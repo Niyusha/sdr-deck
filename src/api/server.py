@@ -22,8 +22,9 @@ class Server(object):
     def __init__(self, parent=None):
         super(Server, self).__init__()
 
+        #TODO: MAKE ASBOLUTE PATH AGNOSTIC
         self.configurator = ConfigParser()
-        self.configurator.read("/home/pi/git/pisdr-cyberdeck/src/api/config.ini")
+        self.configurator.read("/home/pi/git/sdr-deck/src/api/config.ini")
 
         server_config = dict(self.load_config(self.configurator.items("server")))
 
@@ -34,7 +35,7 @@ class Server(object):
         GPIO.setmode(GPIO.BCM)
         self.I2C_BUS = board.I2C()
 
-        #devices
+        # DEVICES
         self.obc = systems.OBC(			self, dict(self.load_config(self.configurator.items("obc"))))
         self.display = systems.Display(	self, dict(self.load_config(self.configurator.items("display"))))
         self.battery = systems.Battery(	self, dict(self.load_config(self.configurator.items("battery"))))
@@ -52,7 +53,7 @@ class Server(object):
         self.clock = systems.Clock(self, dict(self.load_config(self.configurator.items("clock"))))
         self.database = systems.Database(self, dict(self.load_config(self.configurator.items("database"))))
 
-        #Processes
+        # PROCESSES
         self.aprs = systems.APRS(self, 		dict(self.load_config(self.configurator.items("aprs"))))
         self.ais = systems.AIS(self, 		dict(self.load_config(self.configurator.items("ais"))))
         self.rtltcp1 = systems.RTLTCP(self, dict(self.load_config(self.configurator.items("rtltcp1"))))
@@ -66,7 +67,7 @@ class Server(object):
         self.proxy = systems.Proxy(self, 		dict(self.load_config(self.configurator.items("proxy"))))
         self.subscriber = systems.Subscriber(self, 		dict(self.load_config(self.configurator.items("subscriber"))))
 
-        #Applications
+        # APPLICATIONS
         self.opencpn = 		systems.Application(self, dict(self.load_config(self.configurator.items("opencpn"))))
         self.fldigi = 		systems.Application(self, dict(self.load_config(self.configurator.items("fldigi"))))
         self.keyboard = 	systems.Application(self, dict(self.load_config(self.configurator.items("keyboard"))))
@@ -105,7 +106,7 @@ class Server(object):
         self.systems.append(self.proxy)
         self.systems.append(self.subscriber)
 
-        #self.systems.append(self.gqrx)
+        # self.systems.append(self.gqrx)
         self.systems.append(self.opencpn)
         self.systems.append(self.fldigi)
         self.systems.append(self.keyboard)
@@ -114,7 +115,7 @@ class Server(object):
         self.systems.append(self.vnc1)
         self.systems.append(self.vnc2)
 
-        #Start threads
+        # Start threads
         # = [system.start() for system in self.systems if isinstance(system, Thread)]
 
         for system in self.systems:

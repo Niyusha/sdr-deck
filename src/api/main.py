@@ -6,17 +6,17 @@ __author__ = 'Tom Mladenov'
 from typing import Optional
 
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
 from fastapi.openapi.utils import get_openapi
 from server import Server
 from packet import Packet
+from fastapi.responses import JSONResponse
 
 import sys
-import os
 import uvicorn
 import logging
 import time
 import inspect
+import os
 
 tags_metadata = [
     {
@@ -44,7 +44,7 @@ server = Server()
 api = FastAPI(openapi_tags=tags_metadata)
 
 def execute_function_subsystem(**kwargs):
-	#print("Server subsystem function invocation: {}.{}({})".format(kwargs["system"], kwargs["function_name"], kwargs["args"]))
+	# print("Server subsystem function invocation: {}.{}({})".format(kwargs["system"], kwargs["function_name"], kwargs["args"]))
 	try:
 		s = [sys for sys in server.systems if sys.config["s_id"] == kwargs["system"]][0]
 		target_function = getattr(s, kwargs["function_name"])
