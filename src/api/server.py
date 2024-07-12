@@ -83,44 +83,44 @@ class Server(object):
         self.vnc1 = 	systems.Application(self, dict(self.load_config(self.configurator.items("vnc1"))))
         self.vnc2 = 	systems.Application(self, dict(self.load_config(self.configurator.items("vnc2"))))
 
-        self.systems = []
-        self.systems.append(self.obc)
-        self.systems.append(self.display)
-        self.systems.append(self.battery)
-        self.systems.append(self.dcdc)
-        self.systems.append(self.audio)
-        self.systems.append(self.usb)
-        self.systems.append(self.lan)
-        self.systems.append(self.wlan)
-        self.systems.append(self.bluetooth)
-        self.systems.append(self.gps)
-        self.systems.append(self.rigctl)
-        self.systems.append(self.rf)
-        self.systems.append(self.indicator)
+        self.systems = [
+            self.obc,
+            self.display,
+            self.battery,
+            self.dcdc,
+            self.audio,
+            self.usb,
+            self.lan,
+            self.wlan,
+            self.bluetooth,
+            self.gps,
+            self.rigctl,
+            self.rf,
+            self.indicator,
+            self.publisher,
+            self.clock,
+            self.aprs,
+            self.ais,
+            self.vdl,
+            self.acars,
+            self.ism,
+            self.rs1,
+            self.rs2,
+            self.rtltcp1,
+            self.rtltcp2,
+            self.gqrx,
+            self.proxy,
+            self.subscriber,
+            self.opencpn,
+            self.fldigi,
+            self.keyboard,
+            self.navigation,
+            self.gpredict,
+            self.vnc1,
+            self.vnc2,
+            # self.gqrx,
+        ]
 
-        self.systems.append(self.publisher)
-        self.systems.append(self.clock)
-        self.systems.append(self.aprs)
-        self.systems.append(self.ais)
-        self.systems.append(self.vdl)
-        self.systems.append(self.acars)
-        self.systems.append(self.ism)
-        self.systems.append(self.rs1)
-        self.systems.append(self.rs2)
-        self.systems.append(self.rtltcp1)
-        self.systems.append(self.rtltcp2)
-        self.systems.append(self.gqrx)
-        self.systems.append(self.proxy)
-        self.systems.append(self.subscriber)
-
-        # self.systems.append(self.gqrx)
-        self.systems.append(self.opencpn)
-        self.systems.append(self.fldigi)
-        self.systems.append(self.keyboard)
-        self.systems.append(self.navigation)
-        self.systems.append(self.gpredict)
-        self.systems.append(self.vnc1)
-        self.systems.append(self.vnc2)
 
         # Start threads
         # = [system.start() for system in self.systems if isinstance(system, Thread)]
