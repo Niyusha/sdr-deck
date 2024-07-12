@@ -25,10 +25,8 @@ class Server(object):
         # Get load config.ini without using a hardcoded path:
         # Get the directory of the current script
         script_dir = os.path.dirname(os.path.abspath(__file__))
-
         # Construct the path to config.ini relative to the script directory
         config_path = os.path.join(script_dir, 'config.ini')
-
         # Initialize ConfigParser and read the configuration file
         self.configurator = ConfigParser()
         self.configurator.read(config_path)
