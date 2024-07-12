@@ -25,7 +25,8 @@ rtl_eeprom -d 1 -s 'rf2'
 The Raspberry Pi SDR cyberdeck runs on a software framework with at it's core an ASGI (Asynchronous Server Gateway Interface), in this case uvicorn. The ASGI interface connects to FastAPI which performs the function invocations in the Python threads which control the Devices, Processes and Applications. This allows for easy system manipulation via HTTP1.1 GET/PUT/POSTS methods. The Python threads controlling the processes can range from a commandline decoder to decode APRS via an audio interface, through to starting a VNC session or starting navigation/mapping software. The intention is to make complex application flow, configuration and control easily accessible via the Cyberdeck API interface (which performs HTTP requests to the server), therefore eliminating local commandline interaction with the system. In parallel system data is dumped to an influxdb database, and exposed via Grafana, allowing easy system monitoring over longer periods of time.
 
 ```
-pip3 install -r doc/requirements.txt
+cd sdr-deck
+make
 ```
 
 Clone the following repositories and follow individual installation instructions:
@@ -35,7 +36,8 @@ Clone the following repositories and follow individual installation instructions
 - [acarsdec](https://github.com/TLeconte/acarsdec)
 - [rtl-ais](https://github.com/dgiardini/rtl-ais)
 - [rtl-sdr](https://github.com/sysrun/rtl-sdr) (extended version to use a UDP control port and other features)
-
+  
+- (py-sdr?)
 
 Example Raspberry config file [here](config/config.txt):
 

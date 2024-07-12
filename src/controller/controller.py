@@ -4,7 +4,7 @@
 __author__ = 'Tom Mladenov, Niyusha'
 
 import time
-from threading import Thread, Lock
+from threading import Thread
 
 import datetime
 from adafruit_bus_device.i2c_device import I2CDevice
@@ -14,6 +14,7 @@ PARAM_ID = 0x54
 
 
 class Controller(Thread):
+
     alive_flag = True
     running = False
 
