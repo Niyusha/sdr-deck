@@ -7,7 +7,6 @@ import os
 import sys
 import time
 import datetime
-import subprocess
 import board
 import crc8
 

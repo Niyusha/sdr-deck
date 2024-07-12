@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 __author__ = 'Tom Mladenov'
+# Packet Object Class
 
 import datetime
 
