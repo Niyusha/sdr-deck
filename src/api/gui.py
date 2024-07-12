@@ -1,28 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-__author__ = 'Tom Mladenov'
+__author__ = 'Tom Mladenov, Niyusha'
 
 import os
 import sys
-import time
-from threading import Thread, Lock
 from PyQt5.QtCore import (QCoreApplication, QObject, QRunnable, QThread, pyqtSignal, QEvent, Qt, QVariant, QTimer, QAbstractTableModel)
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QWidget, QListWidgetItem, QFileDialog, QTableWidgetItem, qApp
 from PyQt5.uic import loadUi
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QImage, QIcon, QPixmap, QFont, QSyntaxHighlighter, QTextCharFormat, QColor, QBrush
-import numpy as np
-import argparse
 import datetime
-import logging
-import subprocess
-import gpsd
-import mgrs
-import re
-import zmq
-from enum import Enum
-import json
 import argparse
 from cyberdeck import RemoteCyberdeck
 import copy
@@ -227,12 +214,12 @@ class DeviceWidget(QWidget):
 						label.setStyleSheet(GREEN)
 					else:
 						label.setStyleSheet("")
-					
+
 
 					label.setText("{}".format(value))
 					label.setAlignment(QtCore.Qt.AlignCenter)
 
-				elif key == "ssid" or key == "conn":	
+				elif key == "ssid" or key == "conn":
 					label.setText("{}".format(value))
 					label.setAlignment(QtCore.Qt.AlignCenter)
 
@@ -1047,4 +1034,4 @@ if __name__ == '__main__':
 	app = Main(ip=args.ipaddress)
 	app.show()
 	a.exec_()
-	os._exit(0)
+	sys.exit(app.exec_())
