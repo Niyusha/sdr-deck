@@ -31,15 +31,15 @@ import RPi.GPIO as GPIO
 from rpi_backlight import Backlight
 import netifaces
 import Adafruit_ADS1x15
-from pyrtlsdr import RtlSdr
+from rtlsdr import RtlSdr
 from aprspy import APRS, PositionPacket, GenericPacket
 from aprspy.packets.position import CompressionFix, CompressionSource, CompressionOrigin
 from packet import Packet
 
 
-class Process():
+class Process:
 
-	#This class should be used for any programs that require a data source from a device as an input (either RF or audio, or another device)
+	# This class should be used for any programs that require a data source from a device as an input (either RF or audio, or another device)
 
 	def __init__(self, parent, config):
 		self.parent = parent
@@ -739,7 +739,7 @@ class ADSB(Process):
 
 		subprocess.run(["killall rtl_433"], shell=True)
 
-	def _run_executable(self):
+	def _run_executable(self, command2=None):
 		index = self.parent.rf.status["{}_index".format(self.config["s_device"])]
 		ppm = self.parent.rf.config["i_{}_ppm".format(self.config["s_device"])]
 		gain = self.config["i_gain"]
