@@ -8,7 +8,6 @@ import sys
 import time
 import datetime
 import subprocess
-import RPi.GPIO as GPIO
 import board
 import crc8
 
