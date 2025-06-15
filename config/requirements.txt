@@ -1,12 +1,58 @@
-fastapi
-PyQt5
-rpi-backlight
-mgrs
-adafruit-circuitpython-ina219
-aprspy
-pyalsaaudio
-Adafruit_ADS1x15
-pyais
-netifaces
-pyrtlsdr
-influxdb-client
+# SDR Cyberdeck Requirements - Fixed Version
+# Issues fixed:
+# 1. Added missing packages: uvicorn, RPi.GPIO, pyzmq, gpsd-py3, adafruit-blinka
+# 2. Fixed influxdb-client → influxdb (code uses InfluxDB 1.x)
+# 3. Added version pinning for stability on Raspberry Pi
+
+# ============================================
+# CORE WEB FRAMEWORK & API
+# ============================================
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# ============================================
+# GUI FRAMEWORK
+# ============================================  
+PyQt5==5.15.10
+
+# ============================================
+# NETWORK & COMMUNICATION
+# ============================================
+pyzmq==25.1.1
+netifaces==0.11.0
+
+# ============================================
+# RASPBERRY PI HARDWARE INTERFACE
+# ============================================
+RPi.GPIO==0.7.1
+rpi-backlight==2.2.0
+adafruit-blinka==8.45.0
+
+# ============================================
+# ADAFRUIT HARDWARE LIBRARIES
+# ============================================
+adafruit-circuitpython-ina219==3.4.14
+Adafruit_ADS1x15==1.0.2
+
+# ============================================
+# SDR & RADIO LIBRARIES
+# ============================================
+pyrtlsdr==0.2.93
+aprspy==0.4.0
+pyais==2.6.4
+
+# ============================================
+# GPS & LOCATION
+# ============================================
+gpsd-py3==0.3.0
+mgrs==1.4.6
+
+# ============================================
+# AUDIO PROCESSING (requires: sudo apt install libasound2-dev)
+# ============================================
+pyalsaaudio==0.10.0
+
+# ============================================
+# DATABASE - InfluxDB 1.x (FIXED)
+# ============================================
+influxdb==5.3.1

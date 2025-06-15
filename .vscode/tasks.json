@@ -1,0 +1,72 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Sync to RPi",
+            "type": "shell",
+            "command": "./sync-to-rpi.sh",
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Test on RPi",
+            "type": "shell",
+            "command": "./test-on-rpi.sh",
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Debug RPi Health",
+            "type": "shell",
+            "command": "uv",
+            "args": ["run", "python", "dev-scripts/debug-tools.py", "--host", "192.168.1.100", "health"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SSH to RPi",
+            "type": "shell",
+            "command": "./debug-rpi.sh",
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Start Live Sync",
+            "type": "shell",
+            "command": "./watch-and-sync.sh",
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated"
+            },
+            "isBackground": true,
+            "problemMatcher": []
+        }
+    ]
+}

@@ -7,12 +7,15 @@ all: install server setup # This is the default target that will run if no targe
 install:
 	@echo "Installing python packages from requirements.txt:"
 	sudo apt update
-	pip install -r ./config/requirements.txt
+	uv venv .venv
+	uv pip install -r ./config/requirements.txt
 
 # Target to install OS packages
 setup:
 	@echo "Installing os packages:"
-	# TODO: project deb dependency install
+	# Audio dependencies for pyalsaaudio
+	sudo apt install -y libasound2-dev
+	# SDR and audio tools
 	sudo apt install -y rtl-sdr sox
 	@echo "Creating directories"
 	mkdir # TODO: needed dirs
@@ -21,5 +24,4 @@ setup:
 # Target to start the server
 # Navigate to src/api and init main.py
 server:
-	cd src/api &&
-	python3 main.py
+	cd src/api && uv run python main.py

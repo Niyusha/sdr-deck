@@ -1,0 +1,47 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug API Server (Local Mock)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/tests/test_api_minimal.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/src/api"
+            }
+        },
+        {
+            "name": "Debug Tools - Health Check",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/dev-scripts/debug-tools.py",
+            "args": ["--host", "192.168.1.100", "health"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Debug Tools - Monitor",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/dev-scripts/debug-tools.py",
+            "args": ["--host", "192.168.1.100", "monitor", "--interval", "3", "--duration", "30"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Remote Debug API Server",
+            "type": "python",
+            "request": "attach",
+            "connect": {
+                "host": "192.168.1.100",
+                "port": 5678
+            },
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/home/pi/sdr-deck"
+                }
+            ]
+        }
+    ]
+}
