@@ -76,6 +76,14 @@ The project integrates with several external tools that must be installed separa
 - **rtl-ais** - AIS decoder
 - **rtl-sdr** - Extended RTL-SDR library with UDP control
 
+### RTL-SDR Library Options (2024)
+The project currently uses the **sysrun fork** for UDP control capabilities:
+- **Current**: https://github.com/sysrun/rtl-sdr (UDP control port 6020)
+- **Alternative**: https://github.com/rtlsdrblog/rtl-sdr-blog (enhanced features, V4 support)
+- **Official**: https://github.com/osmocom/rtl-sdr (upstream, weekly builds)
+
+**Note**: The sysrun fork provides unique UDP control for remote frequency/mode changes without restarting programs. For newer hardware support (RTL-SDR Blog V4), consider the RTL-SDR Blog enhanced version.
+
 ### Hardware Integration
 - **Raspberry Pi** with official 7" touchscreen (minimal setup)
 - **RTL-SDR dongles** with unique serials 'rf1' and 'rf2'
